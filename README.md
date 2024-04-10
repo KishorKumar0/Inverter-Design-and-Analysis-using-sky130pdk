@@ -36,4 +36,21 @@ _after this choose a plot by typing '''setplot <plot_name>'''. for example '''se
 _example : plot -vds#branch_<br><br>
 
 Then you must see the plot below you, if you did a DC sweep on the __VGS__ source for different values of __VDS__:<br>
-![Ids vs Vgs](./General_MOS_Analysis/Id_vs_Vgs_for_nfet_1v8.png)<br><br>
+![Ids vs Vgs](./General_MOS_analysis/Id_vs_Vgs_for_nfet_1v8.png)<br><br>
+
+This definitely shows us that the threshold value is between __600mV to 700mV__ .
+Similarly, when I sweep __VDS__ source for different values of __VGS__, I get the below plot:<br>
+
+![Ids vs Vds](./General_MOS_analysis/Id_vs_Vds_for_nfet_1v8_.png)<br><br>
+
+Now the above two definitely looks like what the characteristics curves should, but now we need to choose a particular curve that we would do further analysis on.
+
+I also did plot gm and go(or ro) values for the above mosfet. This would be crucial as we can obtain a lot of parameters from these values. Both of these below are for the general dc sweep we did above. 
+![gm](./General_MOS_analysis/gds_nfet_1v8.png)<br>
+![go](./General_MOS_analysis/go_nfet_1v8.png)<br>
+
+## 3. CMOS Inverter Design and Analysis
+### 3.1 Why CMOS Circuits
+
+An interesting obseration was made in the previous section, where we realised that neither NMOS nor PMOS can be used for design that can produce either values, HIGH and LOW. But another thing that is worth notice is how they complement each other. This is what gave rise to an idea of attaching them together. Since, __PMOS__ is a __Strong 1__, we put it between VDD and Vout and __NMOS__ being a __STRONG 0__, it is placed between Vout and GND. This way, either can act as a load to the other transistor, since __both are never ON together__ (Are they?). The configuration looks like what we have below. This is referred to as __Complimentary Metal Oxide Semiconductor__(CMOS) Configuration and it also represents the simplest circuit known as the __CMOS Inverter__.<br><br>
+![CMOS Inverter](./General_MOS_analysis/block_of_cmos_inv.png)<br>
