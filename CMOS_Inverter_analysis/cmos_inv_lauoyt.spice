@@ -1,0 +1,5 @@
+* SPICE3 file created from cmos_lauoyt.ext - technology: sky130A
+
+X0 out in vdd vdd sky130_fd_pr__pfet_01v8 ad=1.155 pd=5.3 as=1.155 ps=5.3 w=2.1 l=0.15
+X1 out in vss vss sky130_fd_pr__nfet_01v8 ad=0.45 pd=2.9 as=0.4 ps=2.8 w=1 l=0.15
+C0 vdd vss 2.4073f **FLOATING
