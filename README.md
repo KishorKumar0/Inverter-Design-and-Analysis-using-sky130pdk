@@ -2,9 +2,6 @@
 ### Design and Analysis of CMOS Inverter using the sky130 pdk and various open source tools
 ---
 
-___I got busy and development has halted for a while. I plan to continue and complete this repo and would also welcome any contribution from others as well. Stay tuned for the bash script to install the tools for analog design flow(xschem+sky130pdk+ngspice+magic+netgen), that is in priority for now. Also special thanks to [Rajdeep](https://www.linkedin.com/in/rajdeep-mazumder/) for mentioning this repository in his videos, now I have a responsibility to manage it better which I am really excited for!!.___
-
----
 This project has only one motive; that is to experiment with working of an inverter and understanding all the parameters involved with it. The design will utilise the models that are present under the __skywater 130nm pdk__ and various open source tools such as, __Xschem__, __NGSPICE__, __MAGIC__, __Netgen__, etc.
 
 The whole process starts with analysis of _NMOS_ and _PMOS_ devices, specifically the 1.8v standard models available inside the pdk to determine a common working W/L ratio and also the gm, ron and similar values. After this we start with the design of a CMOS inverter that includes schematic, measurement of various parameters like delays, noise margin, risetime, falltime, etc. This part would also act as a case study on __SPICE__ where we use it's programming capabilities to better our abilities in measurements of aforementioned parameters. Then we will engage in the design a layout for our inverter in __magic layout editor__. Here, we will also explore the different layers available to the user and how we utilise them in a design and what it translates to in terms of a mask. Lastly, we compare the two netlists, that is the schematic and the layout one, which is popularly referred to as ___LVS___. If everything is hunky-dory, this project would then conclude. 
@@ -111,3 +108,27 @@ Now all the basic defining characteristics of an inverter are done. So we can fi
 <b>NMH(Noise Margin for HIGH) - VOH - VIH</b><br>
 
 So for our calculated values, the device would have, __NML = 0.78V__ and __NML = 0.8V__.
+
+#### 3.2.1 DC Analysis and Important design parameters
+
+Transient analysis of a circuit is the simulation of the circuit's electrical behaviour over time, specifically its response to changing input signals. The CMOS inverter dynamic characteristics are shown below. So, some of the following formal definitions of different parameters are discussed below. Here, all the percentage (%) values are the steady-state values :<br>
+
+Rise Time or tr: Rise time is the time used to increase the signal from 10% to 90%. Fall Time or tf: Fall time is the time used to drop the signal from 90% to 10% Edge Rate or trf : It is (tr + tf )/2. The propagation delay from high to low or tpHL: The time used to drop from VOH – 50%. The propagation delay from low to high or tpLH: The time used to increase from 50%- VOL. Propagation Delay or tp: It is (tpHL + tpLH)/2. Contamination Delay or tcd: It is the smallest time from the 50% input crossing to the 50% output crossing.<br>
+
+The transfer characteristics for the transient analysis for is given below:<br>
+![cmos inverter vtc](./CMOS_Inverter_analysis/cmos_inv_trans_analysis.png)
+
+Three golden methods to increase speed of the inverter (rise time reduction) :
+
+🔸Increase W/L ratio: More W/L = more current = faster load capacitance charging.
+
+🔸Increase power supply (Vdd): Higher Vdd = higher current flow = faster load capacitance charging.
+
+🔸Reduce load capacitance: Less capacitance = quicker charging = faster circuit response.
+
+
+Now we consider a load capacitance at the output of our invertor. The value of the capacitance we consider is 0.5pF. For unloaded inverters, doubling the sizes of the NMOS and PMOS doesn't have much effect on rise time. For a loaded inverter, it will have an effect. We will look into how much effect that will have by taking the Widths to be 4,1 in the first case.<br>
+![cmos inverter vtc](./CMOS_Inverter_analysis/cmos_inv_trans_analysis_improved.png)
+
+
+
