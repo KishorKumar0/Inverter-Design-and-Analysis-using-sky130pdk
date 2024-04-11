@@ -127,7 +127,7 @@ Three golden methods to increase speed of the inverter (rise time reduction) :
 🔸Reduce load capacitance: Less capacitance = quicker charging = faster circuit response.
 
 
-Now we consider a load capacitance at the output of our invertor. The value of the capacitance we consider is 0.5pF. For unloaded inverters, doubling the sizes of the NMOS and PMOS doesn't have much effect on rise time. For a loaded inverter, it will have an effect. We will look into how much effect that will have by taking the Widths to be 4,1 in the first case.<br>
+Now we consider a load capacitance at the output of our invertor. The value of the capacitance we consider is 0.5pF. For unloaded inverters, doubling the sizes of the NMOS and PMOS doesn't have much effect on rise time. For a loaded inverter, it will have an effect. We will look into how much effect that will have by taking the Widths to be 4,1.<br>
 ![cmos inverter vtc](./CMOS_Inverter_analysis/cmos_inv_trans_analysis_improved.png)
 
 
