@@ -109,7 +109,7 @@ Now all the basic defining characteristics of an inverter are done. So we can fi
 
 So for our calculated values, the device would have, __NML = 0.78V__ and __NML = 0.8V__.
 
-#### 3.2.1 DC Analysis and Important design parameters
+#### 3.2.1 Transient Analysis 
 
 Transient analysis of a circuit is the simulation of the circuit's electrical behaviour over time, specifically its response to changing input signals. The CMOS inverter dynamic characteristics are shown below. So, some of the following formal definitions of different parameters are discussed below. Here, all the percentage (%) values are the steady-state values :<br>
 
